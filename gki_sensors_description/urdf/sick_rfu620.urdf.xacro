@@ -34,13 +34,12 @@ xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
           <material name="${name}_material">
             <texture filename="package://gki_sensors_description/meshes/sick_rfu620_diffuse_map.png"/>
           </material>
-        <collision>
         </visual>
+        <collision>
           <origin xyz="0 0 -0.021" rpy="0 0 0" />
           <geometry>
-          <box size="0.05 0.05 0.07" />
-          <!--<mesh filename="package://gki_sensors_description/meshes/hokuyo_urg.stl"/>-->
-        </geometry>
+            <box size="0.05 0.05 0.07" />
+          </geometry>
         </collision>
       </link>
 
