@@ -82,7 +82,7 @@ generate_messages(
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES gki_linux_hardware
-#  CATKIN_DEPENDS diagnostic_msgs linux_hardware rospy std_msgs
+  CATKIN_DEPENDS message_runtime diagnostic_msgs rospy std_msgs
   DEPENDS system_lib message_runtime
 )
 
