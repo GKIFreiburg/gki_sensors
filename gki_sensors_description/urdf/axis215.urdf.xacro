@@ -4,7 +4,7 @@ xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controlle
 xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
   xmlns:xacro="http://ros.org/wiki/xacro"
   >  
-    <include filename="$(find turtlebot_description)/urdf/common_properties.urdf.xacro" />
+    <xacro:include filename="$(find turtlebot_description)/urdf/common_properties.urdf.xacro" />
 
     <xacro:macro name="axis215" params="name parent *origin">
       <joint name="${name}_joint" type="fixed">
@@ -22,7 +22,7 @@ xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
         <visual>
           <origin xyz="0 0 0.0" rpy="0 0 0" />
           <geometry>
-            <mesh filename="package://gki_sensors_description/meshes/axis215.stl"/>
+            <mesh filename="package://gki_sensors_description/meshes/axis215.dae"/>
           </geometry>
           <xacro:insert_block name="material_white" />
         </visual>
@@ -51,17 +51,12 @@ xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
           <child link="${name}_tilted_link"/>
           <limit lower="0.0" upper="1.57079632679489661922" effort="1.0" velocity="3.14" />
       </joint>
-      <!-- If optical frame is somewhat turned, put this here -->
+      <!-- If optical frame is somewhat rotated, put this here -->
       <joint name="${name}_tilt_to_optical" type="fixed">
           <origin xyz="0.0 0.0 0.0" rpy="${-M_PI/2} 0 ${-M_PI/2}" />
           <parent link="${name}_tilted_link"/>
           <child link="${name}_optical_link"/>
       </joint>
-
-
-      <!-- axis_link is base/center of camera??? 
-           Finally: make sure that frame is send in axis_camera pubs for imgs and everything that has a header -->
-    <!-- Also needs to be tested for offsets/rotation + direction -->
 
     </xacro:macro>
 </robot>
